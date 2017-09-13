@@ -1,0 +1,121 @@
+<!-- <html>
+   <head>
+      <title>aMAZEment</title>
+   </head>
+   <body>
+   
+      <script type = "text/javascript" src = "phaser.js"></script>
+      <script type = "text/javascript" src = "paint_tiles.js"></script>
+   </body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Fog of War</title>
+    <style>* { padding: 0; margin: 0; }</style>
+</head>
+<body>
+<script type = "text/javascript" src = "./client/phaser.min.js"></script>
+<script>
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+
+var map;
+function preload() {
+    game.load.image('map',"./client/img/background_1.png");
+    game.load.image('phaser', './client/img/phaser-dude.png');
+    game.load.spritesheet('veggies', './client/img/fog.png', 32, 32);
+
+}
+
+var sprite;
+var group;
+var cursors;
+
+function create() {
+    map = game.add.tileSprite(0,1,1280,499,'map');
+
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    game.stage.backgroundColor = '#2d2d2d';
+
+    sprite = game.add.sprite(32, 200, 'phaser');
+
+    game.physics.arcade.enable(sprite);
+    
+    group = game.add.physicsGroup();
+
+    // for (var i = 0; i < 50; i++)
+    // {
+    //     var c = group.create(game.rnd.between(100, 770), game.rnd.between(0, 570), 'veggies', game.rnd.between(0, 35));
+    //     c.body.mass = -100;
+    // }
+
+    for (var i = 0; i < 800; i+=32)
+    {
+        // (x, y)
+        //item = items.create(90 * i, 16 + 90 * j, 'item', i);
+        for(var j = 0; j < 600; j+=32)
+        {
+            var c = group.create(i, j, 'veggies', 0);
+        }
+        //var c = group.create(game.rnd.between(100, 770), game.rnd.between(0, 570), 'veggies', 17);
+    }
+
+    cursors = game.input.keyboard.createCursorKeys();
+
+}
+
+function update() {
+
+    if (game.physics.arcade.collide(sprite, group, collisionHandler, processHandler, this))
+    {
+        console.log('boom');
+    }
+
+    // game.physics.arcade.overlap(sprite, group, collisionHandler, null, this);
+
+    sprite.body.velocity.x = 0;
+    sprite.body.velocity.y = 0;
+
+    if (cursors.left.isDown)
+    {
+        sprite.body.velocity.x = -100;
+    }
+    else if (cursors.right.isDown)
+    {
+        sprite.body.velocity.x = 100;
+    }
+
+    if (cursors.up.isDown)
+    {
+        sprite.body.velocity.y = -100;
+    }
+    else if (cursors.down.isDown)
+    {
+        sprite.body.velocity.y = 100;
+    }
+
+}
+
+function processHandler (player, veg) {
+
+    return true;
+
+}
+
+function collisionHandler (player, veg) {
+
+    if (veg.frame == 0)
+    {
+        veg.kill();
+    }
+
+}
+
+</script>
+</body>
+</html>

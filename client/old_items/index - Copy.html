@@ -1,0 +1,54 @@
+<html>
+   <head>
+      <title>aMAZEment</title>
+   </head>
+   <style>
+   #fog #other
+	{
+		position: relative;
+	}	
+   		.blocked
+	{
+		background-color: gray;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+		.unclear
+	{
+		background-color: gray;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		opacity: .2;
+		top: 0;
+		left: 0;
+	}
+		.gone
+	{
+		background-color: gray;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		opacity: .2;
+		top: 0;
+		left: 0;
+	}
+	
+   </style>
+   <body>
+   
+   	  <script type = "text/javascript" src = "https://cdn.socket.io/socket.io-1.4.5.js"></script>
+      <script type = "text/javascript" src = "./client/phaser.js"></script>
+	  <script type = "text/javascript" src = "./server/Player.js"></script>
+      <script type = "text/javascript" src = "./client/main.js"></script>
+	  <div id="other">
+	  <div id="gameDiv"></div>
+	  <div id="fog">
+		<div class="blocked">  </div>
+	  </div>
+	  </div>
+   </body>
+</html>
