@@ -1,4 +1,8 @@
 # aggieStudioP2 </br>
+Real-time multiplayer browser game written in JavaScript using Phaser (open-source HTML5 game framework). This was a half-semester long project written for CSCE315 at Texas A&M University. There were 4 team members total who contributed equally in design, documentation, and development. The original GitHub repo (on github.tamu.edu) is set to private and was copied here for visibility.
+
+YouTube Demo Video: https://www.youtube.com/watch?v=L9aPRxn12yQ <br><br>
+
 **Development Log:** https://docs.google.com/document/d/1idlzpSBsa7rpK41UvqIsv8AKHqaqkwE1-Es2_EL0ahY/edit </br> 
 **Dropbox for images:** https://www.dropbox.com/sh/cpln3z2urspc6di/AADRC10XxjUb_YU_TkMjBD3ra?dl=0 </br>
 
